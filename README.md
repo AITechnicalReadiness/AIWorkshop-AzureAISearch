@@ -1,1 +1,1 @@
-# AiWorkshop-AzureAISearch
+# AI Workshop Azure AI Search
