@@ -9,7 +9,7 @@
       "name": "formrecognizer",
       "description": "Analyze invoices and extract fields.",
       "context": "/document",
-      "uri": "https://customskills-function.azurewebsites.net/api/AnalyzeInvoice?code=npGZakmlNgypUl4kt_QcXPO523XKmS5TF_Tb4Lko8uo9AzFus4zYew%3D%3D", <- replace with your Function URL
+      "uri": "", <- replace with your Function URL
       "httpMethod": "POST",
       "timeout": "PT30S",
       "batchSize": 1,
