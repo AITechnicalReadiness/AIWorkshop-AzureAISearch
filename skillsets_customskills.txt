@@ -1,0 +1,42 @@
+{
+  "@odata.context": "https://azureaisearch-70768.search.windows.net/$metadata#skillsets/$entity",
+  "@odata.etag": "\"0x8DCF28D64B58A3B\"",
+  "name": "customskills",<- replace with your skillset name
+  "description": "Skillset created from the portal. skillsetName: cog-search-demo-ss; contentField: merged_content; enrichmentGranularity: document; knowledgeStoreStorageAccount: ;",
+  "skills": [
+    {
+      "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+      "name": "formrecognizer",
+      "description": "Analyze invoices and extract fields.",
+      "context": "/document",
+      "uri": "https://customskills-function.azurewebsites.net/api/AnalyzeInvoice?code=npGZakmlNgypUl4kt_QcXPO523XKmS5TF_Tb4Lko8uo9AzFus4zYew%3D%3D", <- replace with your Function URL
+      "httpMethod": "POST",
+      "timeout": "PT30S",
+      "batchSize": 1,
+      "degreeOfParallelism": null,
+      "authResourceId": null,
+      "inputs": [
+        {
+          "name": "formUrl",
+          "source": "/document/url"
+        },
+        {
+          "name": "formSasToken",
+          "source": "/document/metadata_storage_sas_token"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "invoices",
+          "targetName": "invoices"
+        }
+      ],
+      "httpHeaders": {},
+      "authIdentity": null
+    }
+  ],
+  "cognitiveServices": null,
+  "knowledgeStore": null,
+  "indexProjections": null,
+  "encryptionKey": null
+}

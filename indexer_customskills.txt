@@ -1,0 +1,57 @@
+{
+  "@odata.context": "https://azureaisearch-70768.search.windows.net/$metadata#indexers/$entity",
+  "@odata.etag": "\"0x8DCF28EBFFC707E\"",
+  "name": "customskills",
+  "description": "",
+  "dataSourceName": "customskills", <- replace with your data source name
+  "skillsetName": "customskills", <-replace with your skillset name
+  "targetIndexName": "customskills_v2", <-replace with your index name
+  "disabled": null,
+  "schedule": null,
+  "parameters": {
+    "batchSize": null,
+    "maxFailedItems": 0,
+    "maxFailedItemsPerBatch": 0,
+    "base64EncodeKeys": null,
+    "configuration": {
+      "dataToExtract": "contentAndMetadata",
+      "parsingMode": "default",
+      "imageAction": "generateNormalizedImages",
+      "indexedFileNameExtensions": ".pdf"
+    }
+  },
+  "fieldMappings": [
+    {
+      "sourceFieldName": "metadata_storage_path",
+      "targetFieldName": "metadata_storage_path",
+      "mappingFunction": {
+        "name": "base64Encode",
+        "parameters": null
+      }
+    },
+    {
+      "sourceFieldName": "metadata_storage_path",
+      "targetFieldName": "url",
+      "mappingFunction": null
+    }
+  ],
+  "outputFieldMappings": [
+    {
+      "sourceFieldName": "/document/invoices",
+      "targetFieldName": "invoices",
+      "mappingFunction": null
+    },
+    {
+      "sourceFieldName": "/document/invoices/*/CustomerAddress",
+      "targetFieldName": "address",
+      "mappingFunction": null
+    },
+    {
+      "sourceFieldName": "/document/invoices/*/InvoiceId",
+      "targetFieldName": "invoiceId",
+      "mappingFunction": null
+    }
+  ],
+  "cache": null,
+  "encryptionKey": null
+}
