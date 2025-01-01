@@ -46,10 +46,9 @@
         "authIdentity": null
       },
       ```
-    - Add new index into **Indexes**. You can get the full index definition from **index_customskills.txt**. 
-    <br>
-    `Indexer maps the outputs from the skill to the fields in the index`
-        ![Screenshot of add new index](media/add_newindexes.png#lightbox)
+    - Add new index into **Indexes**. You can get the full index definition from **index_customskills.txt**.
+      > Indexer maps the outputs from the skill to the fields in the index
+      ![Screenshot of add new index](media/add_newindexes.png#lightbox)
     
     - Modify the **Indexer**. You can get the full Indexer JSON from **indexer_customskills.txt**
       ```json
