@@ -48,10 +48,11 @@
       ```
     - Add new index into **Indexes**. You can get the full index definition from **index_customskills.txt**. 
     <br>
-      `Indexer maps the outputs from the skill to the fields in the index`
-      ![Screenshot of add new index](media/add_newindexes.png#lightbox)
-      - Modify the **Indexer**. You can get the full Indexer JSON from **indexer_customskills.txt**
-        ```json 
+    `Indexer maps the outputs from the skill to the fields in the index`
+        ![Screenshot of add new index](media/add_newindexes.png#lightbox)
+    
+    - Modify the **Indexer**. You can get the full Indexer JSON from **indexer_customskills.txt**
+      ```json
         "fieldMappings": [
             {
             "sourceFieldName": "metadata_storage_path",
@@ -83,20 +84,23 @@
             "mappingFunction": null
             }
         ],
-        ```
+      ```
 5. Expected Outcome
    ![Screenshot of Expected Outcome](media/expected_outcome.png#lightbox)
 
 
 ## Additional Note
 + **Skillsets**
-  1. The input to the Function App (formUrl & formSasToken)
+  -  The input to the Function App (formUrl & formSasToken)
      ![Screenshot of input function app](media/input_functionapp.png#lightbox)
-  2. (input) to Skillset in Azure AI Search
+
+  - (input) to Skillset in Azure AI Search
      ![Screenshot of input azure ai search](media/input_azureaisearch.png#lightbox)
-  3. The output from the Function App (invoices)
+
+  - The output from the Function App (invoices)
      ![Screenshot of output function app](media/output_functionapp.png#lightbox)
-  4. (output) Skillset in Azure AI Search
+
+  - (output) Skillset in Azure AI Search
      ![Screenshot of output azure ai search](media/output_azureaisearch.png#lightbox)
 
 + **Indexer** (partial)
