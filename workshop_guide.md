@@ -2,55 +2,55 @@
 ## Step
 1. `[OPTIONAL]` Follow the training in here to create the **custom skills with Azure Function leveraging om document intelligence:** [Build a Document Intelligence custom skill for Azure AI Search - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/build-form-recognizer-custom-skill-for-azure-cognitive-search/)
 
-2. Upload sample document into Azure Blob storage. 
-    a. Download the [sample document](https://github.com/MicrosoftLearning/mslearn-ai-document-intelligence/tree/main/Labfiles/04-custom-skill/SampleInvoices) 
-    b. Upload all 5 files to Azure Blob storage
-      > [!NOTE]
-      > Make sure to **Enabled** the storage account to “Allow storage account key access” 
+2. Upload sample document into Azure Blob storage.
+    - Download the [sample document](https://github.com/MicrosoftLearning/mslearn-ai-document-intelligence/tree/main/Labfiles/04-custom-skill/SampleInvoices) 
+    - Upload all 5 files to Azure Blob storage
+      > **[NOTE]** Make sure to **Enabled** the storage account to “Allow storage account key access” 
       ![Screenshot of enable key access.](media/enabled_keyaccess.png#lightbox)
 
 3. Create the data source in Azure AI Search and **create connection** to the Azure Blob Storage.
-    a. Go to **Data sources” > “+ Add data source”** and configure to the Azure Blob Storage that contains the 5 invoices document. 
+    - Go to **Data sources” > “+ Add data source”** and configure to the Azure Blob Storage that contains the 5 invoices document. 
       ![Screenshot of add Datasource](media/add_datasource.png#lightbox)
 
 4. Configuration in **Azure AI Search**
-    a. Include the WebApiSkill in **Skillsets**. You can get the full JSON for the skillsets in **skillsets_customskills.txt**
-    ```json
-    {
-      "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-      "name": "formrecognizer",
-      "description": "Analyze invoices and extract fields.",
-      "context": "/document",
-      "uri": "Azure Function URL for AnalyzeInvoice",  
-      "httpMethod": "POST",
-      "timeout": "PT30S",
-      "batchSize": 1,
-      "degreeOfParallelism": null,
-      "authResourceId": null,
-      "inputs": [
-        {
-          "name": "formUrl",
-          "source": "/document/url"
-        },
-        {
-          "name": "formSasToken",
-          "source": "/document/metadata_storage_sas_token"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "invoices",
-          "targetName": "invoices"
-        }
-      ],
-      "httpHeaders": {},
-      "authIdentity": null
-    },
-    ```
-    b. Add new index into **Indexes**. You can get the full index definition from **index_customskills.txt**.
-       `Indexer maps the outputs from the skill to the fields in the index`
-       ![Screenshot of add new index](media/add_newindexes.png#lightbox)
-    c. Modify the **Indexer**. You can get the full Indexer JSON from **indexer_customskills.txt**
+    - Include the WebApiSkill in **Skillsets**. You can get the full JSON for the skillsets in **skillsets_customskills.txt**
+      ```json
+      {
+        "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+        "name": "formrecognizer",
+        "description": "Analyze invoices and extract fields.",
+        "context": "/document",
+        "uri": "Azure Function URL for AnalyzeInvoice",  
+        "httpMethod": "POST",
+        "timeout": "PT30S",
+        "batchSize": 1,
+        "degreeOfParallelism": null,
+        "authResourceId": null,
+        "inputs": [
+          {
+            "name": "formUrl",
+            "source": "/document/url"
+          },
+          {
+            "name": "formSasToken",
+            "source": "/document/metadata_storage_sas_token"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "invoices",
+            "targetName": "invoices"
+          }
+        ],
+        "httpHeaders": {},
+        "authIdentity": null
+      },
+      ```
+    - Add new index into **Indexes**. You can get the full index definition from **index_customskills.txt**. 
+    <br>
+      `Indexer maps the outputs from the skill to the fields in the index`
+      ![Screenshot of add new index](media/add_newindexes.png#lightbox)
+      - Modify the **Indexer**. You can get the full Indexer JSON from **indexer_customskills.txt**
         ```json 
         "fieldMappings": [
             {
@@ -100,7 +100,7 @@
      ![Screenshot of output azure ai search](media/output_azureaisearch.png#lightbox)
 
 + **Indexer** (partial)
-  + "outputFieldMappings":
+  + outputFieldMappings :
      ![Screenshot of indexer](media/indexer.png#lightbox)
 + **Index**
   ![Screenshot of index](media/index.png#lightbox)
