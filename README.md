@@ -12,7 +12,7 @@ In this workshop, we will work together to build a solution that integrates cust
 
 ## How-to Workshop Guide
 
-Please refer to this guide for more details.
+Please refer to [this guide](https://github.com/AITechnicalReadiness/AIWorkshop-AzureAISearch/blob/main/workshop_guide.md) for more details.
 
 
 ## Resources

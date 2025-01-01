@@ -1,17 +1,17 @@
 # How-to Workshop Guide
 ## Step
-1. `OPTIONAL` Follow the training in here to create the **custom skills with Azure Function leveraging om document intelligence:** [Build a Document Intelligence custom skill for Azure AI Search - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/build-form-recognizer-custom-skill-for-azure-cognitive-search/)
+1. `[OPTIONAL]` Follow the training in here to create the **custom skills with Azure Function leveraging om document intelligence:** [Build a Document Intelligence custom skill for Azure AI Search - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/build-form-recognizer-custom-skill-for-azure-cognitive-search/)
 
 2. Upload sample document into Azure Blob storage. 
     a. Download the [sample document](https://github.com/MicrosoftLearning/mslearn-ai-document-intelligence/tree/main/Labfiles/04-custom-skill/SampleInvoices) 
     b. Upload all 5 files to Azure Blob storage
-        > [!NOTE]
-        > > Make sure to **Enabled** the storage account to “Allow storage account key access” 
-        ![Screenshot of enable key access.](media/enabled_keyaccess.png#lightbox)
+      > [!NOTE]
+      > Make sure to **Enabled** the storage account to “Allow storage account key access” 
+      ![Screenshot of enable key access.](media/enabled_keyaccess.png#lightbox)
 
 3. Create the data source in Azure AI Search and **create connection** to the Azure Blob Storage.
     a. Go to **Data sources” > “+ Add data source”** and configure to the Azure Blob Storage that contains the 5 invoices document. 
-        ![Screenshot of add Datasource](media/add_datasource.png#lightbox)
+      ![Screenshot of add Datasource](media/add_datasource.png#lightbox)
 
 4. Configuration in **Azure AI Search**
     a. Include the WebApiSkill in **Skillsets**. You can get the full JSON for the skillsets in **skillsets_customskills.txt**
@@ -50,7 +50,7 @@
     b. Add new index into **Indexes**. You can get the full index definition from **index_customskills.txt**.
        `Indexer maps the outputs from the skill to the fields in the index`
        ![Screenshot of add new index](media/add_newindexes.png#lightbox)
-    c.	Modify the **Indexer**. You can get the full Indexer JSON from **indexer_customskills.txt**
+    c. Modify the **Indexer**. You can get the full Indexer JSON from **indexer_customskills.txt**
         ```json 
         "fieldMappings": [
             {
