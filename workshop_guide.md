@@ -3,7 +3,7 @@
 1. `[OPTIONAL]` Follow the training in here to create the **custom skills with Azure Function leveraging om document intelligence:** [Build a Document Intelligence custom skill for Azure AI Search - Training | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/build-form-recognizer-custom-skill-for-azure-cognitive-search/)
 
 2. Upload sample document into Azure Blob storage.
-    - Download the [sample document](https://github.com/MicrosoftLearning/mslearn-ai-document-intelligence/tree/main/Labfiles/04-custom-skill/SampleInvoices) 
+    - Download the [sample document](https://github.com/AITechnicalReadiness/AIWorkshop-AzureAISearch/tree/main/Invoice) 
     - Upload all 5 files to Azure Blob storage
       > **[NOTE]** Make sure to **Enabled** the storage account to “Allow storage account key access” 
       ![Screenshot of enable key access.](media/enabled_keyaccess.png#lightbox)
@@ -13,7 +13,7 @@
       ![Screenshot of add Datasource](media/add_datasource.png#lightbox)
 
 4. Configuration in **Azure AI Search**
-    - Include the WebApiSkill in **Skillsets**. You can get the full JSON for the skillsets in **skillsets_customskills.txt**
+    - Include the WebApiSkill in **Skillsets**. You can get the full JSON for the skillsets in [skillsets_customskills.txt](https://github.com/AITechnicalReadiness/AIWorkshop-AzureAISearch/blob/main/skillsets_customskills.txt)
       ```json
       {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
@@ -46,11 +46,11 @@
         "authIdentity": null
       },
       ```
-    - Add new index into **Indexes**. You can get the full index definition from **index_customskills.txt**.
+    - Add new index into **Indexes**. You can get the full index definition from [index_customskills.txt](https://github.com/AITechnicalReadiness/AIWorkshop-AzureAISearch/blob/main/index_customskills.txt).
       > Indexer maps the outputs from the skill to the fields in the index
       ![Screenshot of add new index](media/add_newindexes.png#lightbox)
     
-    - Modify the **Indexer**. You can get the full Indexer JSON from **indexer_customskills.txt**
+    - Modify the **Indexer**. You can get the full Indexer JSON from [indexer_customskills.txt](https://github.com/AITechnicalReadiness/AIWorkshop-AzureAISearch/blob/main/indexer_customskills.txt).
       ```json
         "fieldMappings": [
             {
