@@ -11,8 +11,13 @@ In this workshop, we will work together to build a solution that integrates cust
 
 
 ## How-to Workshop Guide
+1. Take a look at the animation and video introduction below first
+   ![Azure AI Search-CustomSkill Animation](https://raw.githubusercontent.com/AzureAnimations/AzureAnimations.github.io/main/images/animations-high-resolutions/AI/AzureAISearch-CustomSkill.gif) 
 
-Please refer to [this guide](https://github.com/AITechnicalReadiness/AIWorkshop-AzureAISearch/blob/main/workshop_guide.md) for more details.
+   [![Azure AI Search-CustomSkill Video explain](https://img.youtube.com/vi/abDDi0aA3aI/0.jpg)](https://www.youtube.com/watch?v=abDDi0aA3aI)
+
+
+2. Please refer to [this guide](https://github.com/AITechnicalReadiness/AIWorkshop-AzureAISearch/blob/main/workshop_guide.md) for more details.
 
 
 ## Resources
